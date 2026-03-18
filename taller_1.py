@@ -1,21 +1,25 @@
-Helados = ['vainilla', 'chocolate', 'ron con pasa ']
+# Usamos un diccionario vacío para guardar las ventas
+registro_ventas = {} 
+
 def Ventas():
-    global Helados
-    nombre_helado = (input('Que helado desea: '))
+    # Pedir datos al usuario
+    nombre_helado = input('Qué helado desea (vainilla/chocolate/ron con pasa): ').lower()
+    cantidad = int(input('Cuántos sabores desea: '))
+    precio_por_unidad = 2000  # Definimos un precio base
 
-    Cantidad = int(input('Cuanto sabores desea: '))
-
-    Helados[nombre_helado] = {
-        "tipo de helados" : nombre_helado,
-        "cuanto helado desea": Cantidad
+    # Guardar la venta en el diccionario
+    # Usamos el nombre del helado como "llave"
+    registro_ventas[nombre_helado] = {
+        "cantidad": cantidad,
+        "total": cantidad * precio_por_unidad
     }
     
-    ventas = Helados * Cantidad
-    
-    for Helados, datos in Helados.items():
-        print("-"*50)
-        print("Producto:", Helados)
-        print("Total por producto:", datos["total"])
-        print("Cantidad total vendida:", datos["cantidad"])
+    # Mostrar el resumen de todas las ventas
+    for helado, datos in registro_ventas.items():
+        print("-" * 30)
+        print(f"Producto: {helado.capitalize()}")
+        print(f"Cantidad vendida: {datos['cantidad']}")
+        print(f"Total a pagar: ${datos['total']}")
 
-    print('cantidad de helado', ventas )
+# Llamar a la función para probar
+Ventas()

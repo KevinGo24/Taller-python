@@ -4,7 +4,7 @@ registro_ventas = {}
 def Ventas():
     # Pedir datos al usuario
     nombre_helado = input('Qué helado desea (vainilla/chocolate/ron con pasa): ').lower()
-    cantidad = int(input('Cuántos sabores desea: '))
+    cantidad = int(input('Cuántos helados desea: '))
     precio_por_unidad = 2000  # Definimos un precio base
 
     # Guardar la venta en el diccionario
